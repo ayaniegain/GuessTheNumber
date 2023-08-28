@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body style="background-color:#212121; color:#fff;">
+ 
+    
+    <div id="wrapper">
+      <h1>Number guessing game</h1>
+    <p>Try and guess a random number between 1 and 100.</p>
+    <p>You have 10 attempts to guess the right number.</p>
+    </br>
+        <form class="form">
+            <label2 for="guessField" id="guess">Guess a number</label>
+            <input type="text" id="guessField" class="guessField" autocomplete="off">
+            <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+        </form>
+
+        <div class="resultParas">
+            <p >Previous Guesses: <span class="guesses"></span></p>
+            <p >Guesses Remaining: <span class="lastResult"></span></p>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+    <!-- <script src="chaiaurcode.js"></script> -->
+    <script>
+      let randomNo=Math.floor(Math.random() * 100) + 1;
+      let guessHighorLow=document.querySelector(".lowOrHi")
+      let form=document.querySelector(".form")
+      let guessRemaining= document.querySelector(".lastResult")
+      let lastguessValue=[]
+      let count=10
+      guessRemaining.innerHTML =count
+
+      const resetFunction=()=>{
+
+        let resetBtn= document.getElementById("subt")
+        resetBtn.value="RESET"
+        resetBtn.addEventListener('click',function(e){
+          form.submit()
+        })  
+      }
+
+      console.log("randomNo",randomNo)
+      
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        let inputValue=parseInt(document.querySelector("#guessField").value)
+        count=count-1
+        guessRemaining.innerHTML=count
+        
+        if(count<=0){
+          guessHighorLow.innerHTML="GAME OVER 😢"
+          guessRemaining.innerHTML=0
+      resetFunction()
+
+                   
+        }else{
+       
+        let prevGuess= document.querySelector(".guesses")
+        
+        lastguessValue.unshift(inputValue)
+
+          prevGuess.textContent=lastguessValue[1]
+
+        if(inputValue=== "" || isNaN(inputValue)){
+          alert("enter Only Number ")   
+          }else{
+
+          if(inputValue>randomNo){
+            guessHighorLow.innerHTML="guess High 🤦‍♀️"
+            
+          }else if(inputValue<randomNo){
+            guessHighorLow.innerHTML="guess low 😒"
+            
+          }else if(inputValue==randomNo){
+            guessHighorLow.innerHTML="Correct Guess 😍"
+      resetFunction()
+
+          }
+        }
+        }
+
+      })
+    </script>
+</body>
+</html>
