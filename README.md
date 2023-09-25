@@ -1,4 +1,4 @@
 # GuessTheNumber
-# picture : ![image](https://github.com/ayaniegain/GuessTheNumber/assets/59463533/9b8a00c7-b39e-44ec-a2ce-e6912b6191da)
-#link : [https://guess-the-numbers-77.netlify.app/
-](https://number-guessing-game1.netlify.app/)https://number-guessing-game1.netlify.app/
+# picture : <img width="493" alt="Capture" src="https://github.com/ayaniegain/GuessTheNumber/assets/59463533/83231abc-7022-4ddd-9e16-f4ecdb40195a">
+
+#link : https://number-guessing-game1.netlify.app/
